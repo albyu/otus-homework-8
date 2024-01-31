@@ -1,0 +1,23 @@
+order:
+  name: order
+  postgres:
+    appUsername: otususer
+    appPassword: otususer
+    appDatabase: otusdb
+    appDbUrl: jdbc:postgresql://postgres-service:5432/order_db
+  service:
+    port: &orderServicePort 8080
+    type: ClusterIP
+  rabbitmq:
+    username: rabbitadmin
+    password: rabbitpassword
+  ingress:
+    enabled: true
+    tls: false
+    rules:
+    - host: arch.homework
+      http:
+        paths:
+        - path: /aboldyrev/order($|/)(.*)
+          service:
+            port: *orderServicePort

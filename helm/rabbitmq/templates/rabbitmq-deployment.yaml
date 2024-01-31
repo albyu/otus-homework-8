@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "rabbitmq.fullname" . }}
+  labels:
+    app: {{ include "rabbitmq.name" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "rabbitmq.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "rabbitmq.name" . }}
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3-management
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "rabbitmq.fullname" . }}
+                  key: username
+            - name: RABBITMQ_DEFAULT_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "rabbitmq.fullname" . }}
+                  key: password
+          lifecycle:
+            postStart:
+              exec:
+                command: ['sh', '-c', 'sleep 15 && rabbitmqctl import_definitions /etc/rabbitmq/rabbitmq-definitions.json']
+          ports:
+            - containerPort: {{ .Values.rabbitmq.port }}
+            - containerPort: {{ .Values.rabbitmq.uiPort }}
+          volumeMounts:
+            - name: {{ include "rabbitmq.fullname" . }}-volume
+              mountPath: /etc/rabbitmq
+      initContainers:
+        - name: install-management-plugin
+          image: rabbitmq:3-management
+          command: ['rabbitmq-plugins', 'enable', 'rabbitmq_management']
+      volumes:
+        - name: {{ include "rabbitmq.fullname" . }}-volume
+          configMap:
+            name: {{ include "rabbitmq.fullname" . }}-configmap

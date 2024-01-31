@@ -1,0 +1,28 @@
+apiVersion: v1  
+kind: ConfigMap
+metadata:                                                                                                                                                                                                            
+  name: {{ include "postgres.fullname" . }}-init-scripts
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+data:    
+  init.sh: |-
+    psql --username $POSTGRES_USER -c "CREATE USER $POSTGRES_APP_USER WITH PASSWORD '$POSTGRES_APP_PASSWORD'"
+    psql --username $POSTGRES_USER -c "CREATE DATABASE order_db"
+    psql --username $POSTGRES_USER -c "ALTER DATABASE order_db OWNER TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE order_db TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "CREATE DATABASE orchestra_db"
+    psql --username $POSTGRES_USER -c "ALTER DATABASE orchestra_db OWNER TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE orchestra_db TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "CREATE DATABASE store_db"
+    psql --username $POSTGRES_USER -c "ALTER DATABASE store_db OWNER TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE store_db TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "CREATE DATABASE delivery_db"
+    psql --username $POSTGRES_USER -c "ALTER DATABASE delivery_db OWNER TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE delivery_db TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "CREATE DATABASE payment_db"
+    psql --username $POSTGRES_USER -c "ALTER DATABASE payment_db OWNER TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE payment_db TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "CREATE DATABASE $POSTGRES_APP_DB"
+    psql --username $POSTGRES_USER -c "ALTER DATABASE $POSTGRES_APP_DB OWNER TO $POSTGRES_APP_USER"
+    psql --username $POSTGRES_USER -c "GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_APP_DB TO $POSTGRES_APP_USER"

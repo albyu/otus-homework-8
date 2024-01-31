@@ -1,0 +1,129 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "rabbitmq.fullname" . }}-configmap
+data:
+  rabbitmq-definitions.json: |-
+    {
+      "vhosts": [
+        {
+          "name": "/"
+        }
+      ],
+      "exchanges": [
+        {
+          "name": "{{ .Values.rabbitmq.orderreq.exchangeName }}",
+          "type": "direct",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+
+        },
+        {
+          "name": "{{ .Values.rabbitmq.orderres.exchangeName }}",
+          "type": "direct",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.confirmreq.exchangeName }}",
+          "type": "direct",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.confirmres.exchangeName }}",
+          "type": "direct",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        }
+      ],
+      "queues": [
+        {
+          "name": "{{ .Values.rabbitmq.orderreq.queueName }}",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.orderres.queueName }}",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.confirmreq.paymentQueueName }}",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.confirmreq.storeQueueName }}",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.confirmreq.deliveryQueueName }}",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        },
+        {
+          "name": "{{ .Values.rabbitmq.confirmres.queueName }}",
+          "vhost": "/",
+          "durable": true,
+          "auto_delete": false
+        }
+
+
+
+      ],
+      "bindings": [
+        {
+          "source": "{{ .Values.rabbitmq.orderreq.exchangeName }}",
+          "vhost": "/",
+          "destination": "{{ .Values.rabbitmq.orderreq.queueName }}",
+          "destination_type": "queue",
+          "routing_key": ""
+        },
+        {
+          "source": "{{ .Values.rabbitmq.orderres.exchangeName }}",
+          "vhost": "/",
+          "destination": "{{ .Values.rabbitmq.orderres.queueName }}",
+          "destination_type": "queue",
+          "routing_key": ""
+        },
+        {
+          "source": "{{ .Values.rabbitmq.confirmreq.exchangeName }}",
+          "vhost": "/",
+          "destination": "{{ .Values.rabbitmq.confirmreq.paymentQueueName }}",
+          "destination_type": "queue",
+          "routing_key": "payment"
+        },
+        {
+          "source": "{{ .Values.rabbitmq.confirmreq.exchangeName }}",
+          "vhost": "/",
+          "destination": "{{ .Values.rabbitmq.confirmreq.storeQueueName }}",
+          "destination_type": "queue",
+          "routing_key": "store"
+        },
+        {
+          "source": "{{ .Values.rabbitmq.confirmreq.exchangeName }}",
+          "vhost": "/",
+          "destination": "{{ .Values.rabbitmq.confirmreq.deliveryQueueName }}",
+          "destination_type": "queue",
+          "routing_key": "delivery"
+        },
+        {
+          "source": "{{ .Values.rabbitmq.confirmres.exchangeName }}",
+          "vhost": "/",
+          "destination": "{{ .Values.rabbitmq.confirmres.queueName }}",
+          "destination_type": "queue",
+          "routing_key": ""
+        }     
+      ]
+    }

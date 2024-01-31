@@ -1,0 +1,4 @@
+apiVersion: v2
+name: rabbitmq
+description: A Helm chart for RabbitMQ with queue and exchange
+version: 1.0.0

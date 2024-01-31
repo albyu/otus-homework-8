@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "delivery.fullname" . }}-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "delivery.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "delivery.fullname" . }}
+    spec:
+      containers: 
+        - name: {{ include "delivery.fullname" . }}-app
+          image: aboldyrev1111/otus-homework-8-psd:2.0
+          #env
+          env:
+          - name: POSTGRES_APP_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "delivery.fullname" . }}-secrets
+                key: appUsername
+          - name: POSTGRES_APP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "delivery.fullname" . }}-secrets
+                key: appPassword
+          - name: POSTGRES_URL
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "delivery.fullname" . }}-secrets
+                key: appDbUrl
+          - name: RABBITMQ_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "delivery.fullname" . }}-secrets
+                key: rabbitmqUsername
+          - name: RABBITMQ_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ include "delivery.fullname" . }}-secrets
+                key: rabbitmqPassword
+
+          #volumeMounts
+          volumeMounts:
+          - name: {{ include "delivery.fullname" . }}-configmap
+            mountPath: /opt/otus-homework/config
+          #livenessProbe
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: web
+              scheme: HTTP
+            initialDelaySeconds: 120
+            periodSeconds: 5
+          #readinessProbe
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: web
+            initialDelaySeconds: 30
+            periodSeconds: 5 
+          #ports
+          ports:
+          - name: web
+            containerPort: {{.Values.delivery.service.port}}              
+            protocol: TCP
+      volumes:
+        - name: {{ include "delivery.fullname" . }}-configmap
+          configMap:
+            name: {{ include "delivery.fullname" . }}-configmap                  

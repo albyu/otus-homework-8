@@ -1,0 +1,13 @@
+postgresql:
+  adminUser: otusadmin
+  adminPassword: otusadmin
+  appUser: otususer
+  appPassword: otususer
+  appDatabase: otusdb
+  storageSize:  1Gi
+service:
+  name: postgres-service
+  port: 5432 
+  type: LoadBalancer
+ingress:
+  enabled: false

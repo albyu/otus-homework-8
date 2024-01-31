@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "payment.fullname" . }}-service
+spec:
+  selector:
+    app: {{ include "payment.fullname" . }}
+  ports:
+    - protocol: TCP
+      name: web
+      port: {{.Values.payment.service.port}}
+      targetPort: {{.Values.payment.service.port}} 
+  type: {{.Values.payment.service.type}} 

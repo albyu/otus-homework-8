@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "postgres.fullname" . }}-deployment
+  labels:
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: {{ include "postgres.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "postgres.fullname" . }}
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:latest    
+        imagePullPolicy: IfNotPresent	
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "postgres.fullname" . }}-secrets
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "postgres.fullname" . }}-secrets
+              key: password
+        - name: POSTGRES_APP_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "postgres.fullname" . }}-secrets
+              key: appUsername
+        - name: POSTGRES_APP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "postgres.fullname" . }}-secrets
+              key: appPassword
+        - name: POSTGRES_APP_DB
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "postgres.fullname" . }}-secrets
+              key: appDatabase
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        volumeMounts:
+        - name: postgres-pv-storage
+          mountPath: /var/lib/postgresql/data
+        - name: init-scripts
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:      
+      - name: postgres-pv-storage
+        persistentVolumeClaim:
+          claimName: {{ include "postgres.fullname" . }}-pv-claim
+      - name: init-scripts
+        configMap:
+          name: {{ include "postgres.fullname" . }}-init-scripts

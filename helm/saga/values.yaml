@@ -1,0 +1,19 @@
+global:
+  rabbitmq:
+    service: rabbitmq
+    port: 5672
+#
+    orderreq:
+      queue: reqorders
+      exchange: reqordersexchange
+    orderres:
+      queue: resorders
+      exchange: resordersexchange
+    confirmreq:
+      paymentQueue: reqpaymentconfirms
+      storeQueue: reqstoreconfirms
+      deliveryQueue: reqdeliveryconfirms
+      exchange: reqconfirmexchange
+    confirmres:
+      queue: resconfirms
+      exchange: resconfirmexchange

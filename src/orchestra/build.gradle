@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group 'org.example'
+version '1.0-RELEASE'
+
+repositories {
+    mavenCentral()
+}
+
+final String LOG4J_VERSION = "2.17.0"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:2.6.3"
+    }
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    annotationProcessor 'org.projectlombok:lombok'
+    //testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'org.springframework.boot:spring-boot'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-json'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.postgresql:postgresql:42.6.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+    implementation 'io.micrometer:micrometer-core'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+    implementation "org.apache.logging.log4j:log4j-core:${LOG4J_VERSION}"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+    implementation "ch.qos.logback:logback-core:1.2.3"
+
+}
+
+bootJar {
+    archiveBaseName = 'otus-homework-8-orchestra'
+    archiveFileName = 'otus-homework-8-orchestra.jar'
+}
+

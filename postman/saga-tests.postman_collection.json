@@ -1,0 +1,1856 @@
+{
+	"info": {
+		"_postman_id": "67075dfd-8156-4d26-a6d0-adb0b98f3806",
+		"name": "saga-tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28975247",
+		"_collection_link": "https://blue-equinox-580131.postman.co/workspace/otustest~cdb3636e-857b-4491-a072-3c16c5c1baaf/collection/28975247-67075dfd-8156-4d26-a6d0-adb0b98f3806?action=share&source=collection_link&creator=28975247"
+	},
+	"item": [
+		{
+			"name": "create product beer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Beer\",\r\n    \"price\": 10.57\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/product/post",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"product",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product beer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/product/get?productId=1",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"product",
+						"get"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product fish",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Fish\",\r\n    \"price\": 19.03\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/product/post",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"product",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product fish",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/product/get?productId=2",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"product",
+						"get"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product chips",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"Chips\",\r\n    \"price\": 7.88\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/product/post",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"product",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product chips",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/product/get?productId=3",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"product",
+						"get"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be succes",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 22\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 22\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get success order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get success order case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be success after processing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be failed on payment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", \"p\" + randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 24\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be failed payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 24\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed paym order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed paym case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed payment after processing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be failed on store",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", \"sa\" + randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 22\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be failed store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 22\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed store order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed store case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed store after processing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be failed on delivery",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", \"da\" + randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 100\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 1\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed on delivery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be failed delivery",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 100\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 1\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed delivery order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed delivery case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed on delivery after processing",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be failed on store and stucked on payment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", \"sp\" + randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 5\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 55\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed on store and stucked on payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be failed on store and stucked on payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 5\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 55\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed store stuck payment order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed store stuck payment case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be failed on delivery and stucked on payment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", \"dp\" + randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 12\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed on delivery and stucked on payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be failed on delivery and stucked on payment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 1\r\n            },\r\n            \"quantity\": 33\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 12\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed delivery stuck payment order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed delivery stuck payment case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order to be failed on delivery and stucked on store",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var randomString1 = Math.random().toString(36).substring(7);\r",
+							"pm.collectionVariables.set(\"orderId\", \"ds\" + randomString1);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 22\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 333\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/place",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order to be failed on delivery and stucked on store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process order to be failed on store and stucked on store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{orderId}}\",\r\n    \"version\": {{versionId}},\r\n    \"status\": \"NEW\",\r\n    \"orderItems\": [\r\n        {\r\n            \"product\": {\r\n                \"id\": 2\r\n            },\r\n            \"quantity\": 22\r\n        },\r\n        {            \r\n            \"product\": {\r\n                \"id\": 3\r\n            },\r\n            \"quantity\": 333\r\n        }\r\n\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/order/order/process",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"order",
+						"order",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed delivery stuck store order сase from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/ordercase/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"ordercase",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get failed delivery stuck store case logs from orchestra",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"versionId\", pm.response.json().version);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/aboldyrev/orchestra/orderlog/get?orderId={{orderId}}",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"aboldyrev",
+						"orchestra",
+						"orderlog",
+						"get"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "orderId",
+			"value": ""
+		},
+		{
+			"key": "orderId2",
+			"value": ""
+		}
+	]
+}

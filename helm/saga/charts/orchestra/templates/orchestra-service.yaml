@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "orchestra.fullname" . }}-service
+spec:
+  selector:
+    app: {{ include "orchestra.fullname" . }}
+  ports:
+    - protocol: TCP
+      name: web
+      port: {{.Values.orchestra.service.port}}
+      targetPort: {{.Values.orchestra.service.port}} 
+  type: {{.Values.orchestra.service.type}} 
