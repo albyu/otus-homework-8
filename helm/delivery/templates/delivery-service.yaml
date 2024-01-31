@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "delivery.fullname" . }}-service
+spec:
+  selector:
+    app: {{ include "delivery.fullname" . }}
+  ports:
+    - protocol: TCP
+      name: web
+      port: {{.Values.delivery.service.port}}
+      targetPort: {{.Values.delivery.service.port}} 
+  type: {{.Values.delivery.service.type}} 

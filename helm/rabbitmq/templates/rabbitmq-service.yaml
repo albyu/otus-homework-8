@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ include "rabbitmq.name" . }}
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: {{ .Values.rabbitmq.port }}
       targetPort: {{ .Values.rabbitmq.port }}

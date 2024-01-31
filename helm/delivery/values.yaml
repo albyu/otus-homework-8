@@ -1,0 +1,32 @@
+delivery:
+  name: delivery
+  postgres:
+    appUsername: otususer
+    appPassword: otususer
+    appDatabase: otusdb
+    appDbUrl: jdbc:postgresql://postgres-service:5432/delivery_db
+  rabbitmq:
+    username: rabbitadmin
+    password: rabbitpassword
+  service:
+    port: 8080
+    type: ClusterIP
+rabbitmq:
+  service: rabbitmq
+  port: 5672
+#
+  orderreq:
+    queue: reqorders
+    exchange: reqordersexchange
+  orderres:
+    queue: resorders
+    exchange: resordersexchange
+  confirmreq:
+    paymentQueue: reqpaymentconfirms
+    storeQueue: reqstoreconfirms
+    deliveryQueue: reqdeliveryconfirms
+    exchange: reqconfirmexchange
+  confirmres:
+    queue: resconfirms
+    exchange: resconfirmexchange
+

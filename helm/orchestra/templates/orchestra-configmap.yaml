@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: {{ include "orchestra.fullname" . }}-configmap
+data:
+  application.yml: |
+    server:
+      port: {{.Values.orchestra.service.port}}
+      shutdown: graceful
+    spring:
+      rabbitmq:
+        host: {{.Values.rabbitmq.service}}
+        port: {{.Values.rabbitmq.port}}
+        username: ${RABBITMQ_USER}
+        password: ${RABBITMQ_PASSWORD}
+      datasource:
+        url: ${POSTGRES_URL}
+        username: ${POSTGRES_APP_USER}
+        password: ${POSTGRES_APP_PASSWORD}
+        driver-class-name: org.postgresql.Driver
+      jpa:
+        hibernate:
+          ddl-auto: update
+      mvc:
+        pathmatch:
+          matching-strategy: ant_path_matcher
+    springfox:
+      documentation:
+        swagger-ui:
+          base-url: /orchestra-doc
+        swagger:
+          v2:
+            path: /orchestra-doc/v2/api-docs
+    management:
+      endpoint:
+        metrics:
+          enabled: true
+      endpoints:
+        web:
+          exposure:
+            include: health, info, prometheus
+      metrics:
+        export:
+          prometheus:
+            enabled: true  
+    application:
+      role: {{ include "orchestra.fullname" . }}
+      rabbitmq:
+        orderreq:
+          queueName: {{.Values.rabbitmq.orderreq.queue}}
+        orderres: 
+          exchangeName: {{.Values.rabbitmq.orderres.exchange}}
+        confirmreq:
+          exchangeName: {{.Values.rabbitmq.confirmreq.exchange}}
+        confirmres:
+          queueName: {{.Values.rabbitmq.confirmres.queue}} 
+ 

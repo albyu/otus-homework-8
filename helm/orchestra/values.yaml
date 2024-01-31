@@ -1,0 +1,41 @@
+orchestra:
+  name: orchestra
+  postgres:
+    appUsername: otususer
+    appPassword: otususer
+    appDatabase: otusdb
+    appDbUrl: jdbc:postgresql://postgres-service:5432/orchestra_db
+  rabbitmq:
+    username: rabbitadmin
+    password: rabbitpassword
+  service:
+    port: &orchestraServicePort 8080
+    type: ClusterIP
+  ingress:
+    enabled: true
+    tls: false
+    rules:
+    - host: arch.homework
+      http:
+        paths:
+        - path: /aboldyrev/orchestra($|/)(.*)
+          service:
+            port: *orchestraServicePort
+rabbitmq:
+  service: rabbitmq
+  port: 5672
+#
+  orderreq:
+    queue: reqorders
+    exchange: reqordersexchange
+  orderres:
+    queue: resorders
+    exchange: resordersexchange
+  confirmreq:
+    paymentQueue: reqpaymentconfirms
+    storeQueue: reqstoreconfirms
+    deliveryQueue: reqdeliveryconfirms
+    exchange: reqconfirmexchange
+  confirmres:
+    queue: resconfirms
+    exchange: resconfirmexchange

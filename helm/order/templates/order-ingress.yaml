@@ -1,0 +1,25 @@
+{{- if .Values.order.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "order.fullname" . }}-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    {{- range .Values.order.ingress.rules }}
+  - host: {{ .host }}
+    http:
+      paths:
+      {{- range .http.paths }}
+      - path: {{ .path }}
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: {{ include "order.fullname" (dict "Values" $.Values "Release" $.Release "Path" . ) }}-service
+            port:
+              number: {{ .service.port }}
+      {{- end }}
+    {{- end }}
+  ingressClassName: nginx
+{{- end }}

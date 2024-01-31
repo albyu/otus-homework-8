@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: {{ include "order.fullname" . }}-configmap
+data:
+  application.yml: |
+    server:
+      port: {{.Values.order.service.port}}
+      shutdown: graceful
+    spring:
+      datasource:
+        url: ${POSTGRES_URL}
+        username: ${POSTGRES_APP_USER}
+        password: ${POSTGRES_APP_PASSWORD}
+        driver-class-name: org.postgresql.Driver
+      rabbitmq:
+        host: {{.Values.rabbitmq.service}}
+        port: {{.Values.rabbitmq.port}}
+        username: ${RABBITMQ_USER}
+        password: ${RABBITMQ_PASSWORD}
+      jpa:
+        hibernate:
+          ddl-auto: update
+      mvc:
+        pathmatch:
+          matching-strategy: ant_path_matcher
+    springfox:
+      documentation:
+        swagger-ui:
+          base-url: /order-doc
+        swagger:
+          v2:
+            path: /order-doc/v2/api-docs
+    management:
+      endpoint:
+        metrics:
+          enabled: true
+      endpoints:
+        web:
+          exposure:
+            include: health, info, prometheus
+      metrics:
+        export:
+          prometheus:
+            enabled: true  
+    application:
+      role: {{ include "order.fullname" . }}
+      rabbitmq:
+        orderreq:
+          exchangeName: {{.Values.rabbitmq.orderreq.exchange}} 
+        orderres:
+          queueName: {{.Values.rabbitmq.orderres.queue}} 

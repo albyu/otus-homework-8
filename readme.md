@@ -84,13 +84,29 @@ helm install postgres ./postgres
 helm install rabbitmq ./rabbitmq
 ```
  
-устанавливает брокер сообщений и создает необходимые приложению объекты (queues, exchange, bindings)
+устанавливает брокер сообщений и создает необходимые приложению объекты (queues, exchange, bindings).
+Развертывание занимает около минуты (есть ожидание инициализации для создания объектов)
 
 ```
 helm install saga ./saga
 ```
 
-через сабчарты устанавливает 5 описанных выше приложений.
+через сабчарты устанавливает 5 описанных выше приложений. !!! Может быть ресурсоемко !!!. Поэтому в репозиторий добавил отдельные чарты для каждого приложения.
+
+Их можно установить так (в любом порядке):
+
+```
+helm install order ./order
+
+helm install orchestra ./orchestra
+
+helm install payment ./payment
+
+helm install store ./store
+
+helm install delivery ./delivery
+```
+
 
 Удостоверьтесь, что все необходимые чарты установлены.
 

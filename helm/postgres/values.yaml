@@ -8,6 +8,6 @@ postgresql:
 service:
   name: postgres-service
   port: 5432 
-  type: LoadBalancer
+  type: ClusterIP
 ingress:
   enabled: false
